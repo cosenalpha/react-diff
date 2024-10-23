@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M8NH66GQTX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-M8NH66GQTX');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Reaction-Diffusion Playground</title>
+
+ 
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/map-dialog.css">
+  <!-- <link rel="stylesheet" href="css/corner-links.css"> -->
+  <!-- <link rel="stylesheet" href="css/stats.css"> -->
+  <!-- <link rel="stylesheet" href="css/effects-panel.css"> -->
+
+  <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+  }
+
+  .tp-dfwv { width: 350px !important; }
+  .tp-lblv_v { width: 250px !important; }
+
+  canvas { display: block;}
+  </style>
+</head>
+
+<body>
+  <!-- Container that the main ThreeJS canvas gets injected into. -->
+  <div id="container"></div>
+
+  <!-- Dialog popup containing parameter map. Bring it up using the "Pick parameter values from map" button on the right pane. -->
+  <div id="map-dialog" role="dialog" aria-modal="true" aria-label="Parameter map">
+    <div class="inner-panel">
+      <button class="close-button" title="Close">
+        <span class="fa fa-times" aria-hidden="true"></span>
+      </button>
+
+      <div class="image-container">
+        <img src="./images/karl-sims-parameter-map.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <!-- Github and other links in the bottom left corner. -->
+
+
+  <!-- Hidden canvas and image used to copy image pixel data into the main canvas. -->
+  <canvas id="buffer-canvas" style="display: none;"></canvas>
+  <img id="buffer-image" style="display: none;">
+
+  <!-- Visually-hidden file chooser used to load a local image for use as a style map. -->
+  <input type="file" id="style-map-chooser" accept="image/*" class="sr-only">
+
+  <!-- Visually-hidden file chooser for loading custom seed image. -->
+  <input type="file" id="seed-image-chooser" accept="image/*" class="sr-only">
+
+  <script src="dist/main.bundle.js"></script>
+</body>
+</html>
